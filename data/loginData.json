@@ -1,0 +1,14 @@
+{ 
+    "DATA": {
+        "userOne": {
+            "name": "user1",
+            "email": "testaccount@testmail.com",
+            "password": "testpassword"
+        },
+        "userTwo": {
+            "name": "user2",
+            "email": "testaccount2@testmail.com",
+            "password": "testpassword2"
+        }
+    }
+}

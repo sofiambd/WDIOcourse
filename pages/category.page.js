@@ -1,24 +1,34 @@
-
 import BasePage from '../pages/base.page';
 
 class CategoryPage extends BasePage {
 
   //WebElements
-  get subcategoryName(){ return $('li:nth-child(1) > h5 > a'); }
-  get productName(){ return $('.right-block').$('[title="Faded Short Sleeve T-shirts"]'); }
+
   get addToWishlist(){ return $('#wishlist_button'); }
 
-  
+  get categoryName() { return $('.category-name'); }
 
-  async clickSubcategory() {
-      addStep('Click en la subcategoría a seleccionar.');
-      await super.clickElement(this.subcategoryName);
+  /**
+   * Devuelve el selector de una subcategoría acorde al titulo que se le ingrese.
+   * @param {String} text titulo de la subcategoría.
+   * @returns selectoy
+   */
+
+  async subcategory(text) {
+    const selectorSubcategory = await $(`//h5/a[contains(text(), "${text}")]`);
+    return selectorSubcategory;
   }
 
-   async clickProduct() {
-       addStep('Click en el producto a comprar.');
-       await super.clickElement(this.productName);
-   }
+  /**
+   * Devuelve selector de producto acorde a la título del elemento.
+   * @param {String} name título del elemento.
+   * @returns selector
+   */
+  
+  async product(name) {
+    const selectorProduct = await $('.right-block').$(`[title="${name}"]`);
+    return selectorProduct;
+  }
 
 }
 export default new CategoryPage();

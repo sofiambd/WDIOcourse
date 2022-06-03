@@ -1,18 +1,26 @@
-
 import BasePage from '../pages/base.page';
 
 class LoginPage extends BasePage {
 
   //WebElements
+
   get emailForm(){ return $('#email'); }
+
   get passwordForm() { return $('#passwd'); }
+
   get signInBtn(){ return $('#SubmitLogin'); }
+
   get autenticationTag(){ return $('.navigation_page'); }
+
   get mainPageBtn() { return $('[alt = "My Store"]'); }
+
   get pageHeading() { return $('.page-heading'); }
 
-
-  
+  /**
+   * Completa el formulario de login.
+   * @param {String} email email del usuario
+   * @param {String} password password del usuario
+   */
 
   async loginForm(email,password) {
       addStep('Llena el formulario de login.');
